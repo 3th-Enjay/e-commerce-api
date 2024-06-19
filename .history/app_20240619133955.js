@@ -5,7 +5,6 @@ const app = express();
 
 mongoDBConnection()
 
-app.use(express.json())
 app.use('/', routehandler );
 
 app.use('*', (req, res) => {

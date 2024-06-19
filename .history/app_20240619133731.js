@@ -5,11 +5,6 @@ const app = express();
 
 mongoDBConnection()
 
-app.use(express.json())
-app.use('/', routehandler );
-
-app.use('*', (req, res) => {
-    res.json('ROUTE NOT FOUND')
-})
+app.use('/', )
 
 module.exports = app;
