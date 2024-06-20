@@ -29,6 +29,4 @@ const getOneCat = async (req, res) => {
     }
 }
 
-
-
 module.exports = { createCat, getAllCats, getOneCat }

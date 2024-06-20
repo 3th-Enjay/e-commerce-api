@@ -12,7 +12,7 @@ const createCat =  async (req, res) => {
 
 const getAllCats = async (req, res) => {
     try {
-        const cats = await catInstance.findAllCats();
+        const cats = await catInstance.getAllCats();
         res.json(cats)
     } catch (error) {
         throw new Error(error)
@@ -28,7 +28,5 @@ const getOneCat = async (req, res) => {
         throw new Error(error)
     }
 }
-
-
 
 module.exports = { createCat, getAllCats, getOneCat }
