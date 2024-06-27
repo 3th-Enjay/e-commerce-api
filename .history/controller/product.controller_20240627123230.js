@@ -11,8 +11,8 @@ const createProduct = async (req, res, next) => {
             throw next(err)  
         }
         const {categoryId, name} = field;
-    if(!categoryId || !name) {
-           return  res.status(500).json('Details not completed')
+        if(categoryId === null || name === null) {
+            res.status(500).json('Details not completed')
         }
         const {secure_url} = await uploadFile(file['image-url'].filepath, "intro");
         const category = await catInstance.findOneCat({_id: categoryId});

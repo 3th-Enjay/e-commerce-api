@@ -2,15 +2,14 @@ const express = require('express');
 const mongoDBConnection = require('./config/db.config');
 const routehandler = require('./routes') 
 const cloudinary = require('cloudinary');   
-const configVariables = require('./config/config');
 const app = express();
 
 mongoDBConnection()
 
 cloudinary.config({
-    cloud_name: configVariables.CLOUD_NAME,
-    api_key: configVariables.CLOUDINARY_PUBLIC,
-    api_secret: configVariables.CLOUDINARY_SECRET
+    cloud_name: 'YOUR_CLOUD_NAME',
+    api_key: 'YOUR_API_KEY',
+    api_secret: 'YOUR_API_SECRET'
 });
 
 app.use(express.json())

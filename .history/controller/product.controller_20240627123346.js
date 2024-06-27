@@ -11,7 +11,7 @@ const createProduct = async (req, res, next) => {
             throw next(err)  
         }
         const {categoryId, name} = field;
-    if(!categoryId || !name) {
+        if(categoryId === null || name === null) {
            return  res.status(500).json('Details not completed')
         }
         const {secure_url} = await uploadFile(file['image-url'].filepath, "intro");

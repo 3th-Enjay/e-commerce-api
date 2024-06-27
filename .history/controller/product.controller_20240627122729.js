@@ -11,23 +11,25 @@ const createProduct = async (req, res, next) => {
             throw next(err)  
         }
         const {categoryId, name} = field;
-    if(!categoryId || !name) {
-           return  res.status(500).json('Details not completed')
-        }
         const {secure_url} = await uploadFile(file['image-url'].filepath, "intro");
-        const category = await catInstance.findOneCat({_id: categoryId});
-        if(!category) {
-            throw res.status(404).json('Category not found')
-        }
-        const details = {
-            categoryId: category._id,
-            name: name,
-            imageUrl: secure_url
-        }
-        const product = await productInstance.createProduct(details);
-        res.json(product)
+        // console.log(secure_url, "dddd")
+        // console.log(field, "field")
     })
-   
+    // 
+    // try {
+    //     const category = await catInstance.findOneCat({_id: categoryId});
+    //     if(!category) {
+    //         throw res.status(404).json('Category not found')
+    //     }
+    //     const details = {
+    //         categoryId: category._id,
+    //         name: name
+    //     }
+    //     const product = await productInstance.createProduct(details);
+    //     res.json(product)
+    // } catch (error) {
+    //     throw new Error(error)
+    // }
 } 
 
 const getAllProducts  = async (req, res) => {
