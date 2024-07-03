@@ -3,7 +3,7 @@ const configVariables = require('./config');
 
 const mongoDBConnection = () => {
     mongoose
-    .connect(configVariables.MONGO_URL)
+    .connect(configVariables.MONGODB_URL)
     .then(() => {
         console.log('MONGODB CONNECTION SUCCESSFULLY')
     })
