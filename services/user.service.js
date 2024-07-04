@@ -10,6 +10,11 @@ class UserService {
         const user = await UserModel.findOne({email: email});
         return user
     }
+
+    async findOneUserById (id) {
+        const user = await UserModel.findOne({_id: id});
+        return user
+    }
 }
 
 module.exports = new UserService();

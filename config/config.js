@@ -8,6 +8,7 @@ const configVariables = {
     CLOUDINARY_SECRET: process.env.CLOUDINARY_SECRET,
     CLOUD_NAME: process.env.CLOUD_NAME,
     CLOUDINARY_PUBLIC: process.env.CLOUDINARY_PUBLIC,
+    JWT_SECRET: 'Ifemoney',
 }
 
 module.exports = configVariables

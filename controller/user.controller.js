@@ -34,11 +34,11 @@ const loginUser = async (req, res) => {
      const user = await userService.findOneUser(email);
      // if yes throw error
      if(!user) {
-        res.status(500).json('user does not exits')
+       return  res.status(500).json('user does not exits')
      }
      const isMatch = user.comparePassword(password);
      if (!isMatch) {
-        res.status(500).json('password does not match')
+        return res.status(500).json('password does not match')
      }
      const token = jwt.sign({id: user._id}, 'Ifemoney', { expiresIn: '6days'})
      res.json({
@@ -53,4 +53,10 @@ const loginUser = async (req, res) => {
 }
 
 
-module.exports = {registerUser, loginUser}
+const getUserProfile = async (req, res) => {
+   const user = await userService.findOneUserById(req.user.id)
+   res.json(user)
+}
+
+
+module.exports = {registerUser, getUserProfile, loginUser}

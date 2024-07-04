@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
 
     password: {
         type: String,
+        select: false,
         required: [true, "password is required"],
         min: 6,
         max: 6,
@@ -38,11 +39,9 @@ const userSchema = new mongoose.Schema({
 
 
 userSchema.pre('save', async function (next) {
-    console.log(this.password)
     if(this.isNew || this.isModified('password')) {
         const SALT_ROUNDS = 10;
         const hash = await bcrypt.hash(this.password, SALT_ROUNDS);
-        console.log(hash)
         this.password = hash;
         return next()
     };
