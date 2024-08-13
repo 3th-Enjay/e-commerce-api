@@ -1,6 +1,6 @@
 const catInstance = require("../services/cat.service")
 const productInstance = require("../services/product.service")
-const formidable = require('formidable');
+const {formidable} = require('formidable');
 const  uploadFile  = require("../utilities/upload.util");
 
 
